@@ -16,7 +16,7 @@ This plugins only support provider from `aws`
 
 ### Installation
 ```sh
-$ yarn add --dev yarn add --dev https://github.com/zenryan/serverless-plugin-alb-apikey.git#master
+$ yarn add --dev serverless-plugin-albkey
 ```
 
 ### Register the plugin
