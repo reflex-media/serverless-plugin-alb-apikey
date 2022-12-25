@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-alb-apikey",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Provide private route to Application Load Balancer",
   "main": "index.js",
   "repository": "https://github.com/reflex-media/serverless-plugin-alb-apikey.git",
