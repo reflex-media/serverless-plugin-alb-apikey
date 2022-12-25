@@ -152,15 +152,23 @@ const provider = serverless => {
 class EventAlbApiKeyPlugin {
   constructor(serverless, options) {
     this.commands = {
-      usage: 'Add listener rule to HTTP Listener for x-api-key header',
-      deploy: {
-        lifecycleEvents: ['resources', 'functions'],
+      'alb-apikey': {
+        usage: 'Add listener rule to HTTP Listener for x-api-key header',
+        deploy: {
+          lifecycleEvents: ['resources', 'functions'],
+        },
       },
     };
 
     this.hooks = {
       'before:deploy:deploy': beforeDeploy.bind(null, serverless, options),
     };
+
+    serverless.configSchemaHandler.defineFunctionEventProperties('aws', 'alb', {
+      properties: {
+        apiKey: { type: 'array' },
+      },
+    });
 
     if (!provider(serverless)) {
       throw new Error('This plugin must be used with AWS');
